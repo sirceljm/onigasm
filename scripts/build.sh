@@ -29,11 +29,12 @@ then
     mkdir lib
 fi
 
-emcc -O2 \
+emcc -O1 \
     oniguruma/src/.libs/libonig.so \
     src/onigasm.cc\
     -Isrc -Ioniguruma/src \
     -s WASM=1 \
+    -s BINARYEN_ASYNC_COMPILATION=0 \
     -s NO_EXIT_RUNTIME=1 \
     -s NO_FILESYSTEM=1 \
     -s TOTAL_MEMORY=157286400 \

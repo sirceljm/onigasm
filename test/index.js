@@ -5,10 +5,8 @@ const {
     loadWASM
 } = require('../lib');
 
-const wasmBin = fs.readFileSync(path.join(__dirname, '../lib/onigasm.wasm')).buffer
+loadWASM();
 
-loadWASM(wasmBin).then(() => {
-    jasmine.executeSpecsInFolder({
-        specFolders: [path.join(__dirname, '../spec')]
-    })
+jasmine.executeSpecsInFolder({
+    specFolders: [path.join(__dirname, '../spec')]
 })
